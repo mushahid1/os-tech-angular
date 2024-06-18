@@ -10,8 +10,9 @@ import { SearchComponent } from './components/search/search.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { StatusComponent } from './components/status/status.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import {CdkDropList, CdkDrag} from '@angular/cdk/drag-drop';
 
-const MODULES: any[] = [CommonModule, ReactiveFormsModule, FormsModule, MaterialModule, RouterModule];
+const MODULES: any[] = [CommonModule, ReactiveFormsModule, FormsModule, MaterialModule, RouterModule, CdkDropList, CdkDrag];
 const COMPONENTS: any[] = [
   CustomPaginatorComponent,
   StatusComponent,

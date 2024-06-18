@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-accordion',
@@ -13,6 +14,10 @@ export class AccordionComponent {
 
   toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.rows, event.previousIndex, event.currentIndex);
   }
 
 }
