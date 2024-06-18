@@ -1,0 +1,98 @@
+<div class="page">
+  <div class="d-flex justify-content-between align-items-center">
+    <app-page-header [pageData]="pageData"></app-page-header>
+    <div class="d-flex justify-content-between align-items-center gap-3">
+      <div class="dropdown">
+        <button class="button button-outline" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span>Active</span>
+          <app-svg [svgPath]="'../../../../assets/images/arrow-down.svg'"></app-svg>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><button class="dropdown-item" type="button">Inactive</button></li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="button button-outline" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span>All Platforms</span>
+          <app-svg [svgPath]="'../../../../assets/images/arrow-down.svg'"></app-svg>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><button class="dropdown-item" type="button">Waffle</button></li>
+          <li><button class="dropdown-item" type="button">Enwage</button></li>
+        </ul>
+      </div>
+
+      <button type="button" class="button button-filled">
+        <app-svg [svgPath]="'../../../../assets/images/add.svg'"></app-svg>
+        <span>Add Company</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <div class="d-flex justify-content-between align-items-center filters">
+    <div class="total d-flex justify-content-center align-items-center gap-3">
+      <span>Companies</span>
+      <app-status [status]="'Companies'" [count]="'84'"></app-status>
+    </div>
+    <div class="search-company">
+      <app-search (searchEvent)="getSearchValue($event)"></app-search>
+    </div>
+  </div>
+</div>
+
+<div class="table-listing">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
+    <!-- companyName Column -->
+    <ng-container matColumnDef="companyName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? masterToggle() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>Company Name </th>
+      <td mat-cell *matCellDef="let element"> <span class="bold-first"><mat-checkbox (click)="$event.stopPropagation()"
+            (change)="$event ? toggleRow(element) : null" [checked]="selection.isSelected(element)">
+          </mat-checkbox>{{element.companyName}}</span> </td>
+    </ng-container>
+
+    <!-- Representative Column -->
+    <ng-container matColumnDef="representative">
+      <th mat-header-cell *matHeaderCellDef> Company Representative Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.representative}} </td>
+    </ng-container>
+
+    <!-- companyNumber Column -->
+    <ng-container matColumnDef="companyNumber">
+      <th mat-header-cell *matHeaderCellDef> Company Phone No </th>
+      <td mat-cell *matCellDef="let element"> {{element.companyNumber}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Business Type Column -->
+    <ng-container matColumnDef="businessType">
+      <th mat-header-cell *matHeaderCellDef> Business Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.businessType}} </td>
+    </ng-container>
+
+    <!-- Platforms Column -->
+    <ng-container matColumnDef="platforms">
+      <th mat-header-cell *matHeaderCellDef> Platforms </th>
+      <td mat-cell *matCellDef="let element">
+        <app-status [status]="element.platforms"></app-status>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <app-custom-paginator></app-custom-paginator>
+</div>

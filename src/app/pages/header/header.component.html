@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="global-search">
+    <app-search (searchEvent)="getSearchValue($event)"></app-search>
+  </div>
+  <div class="profile-section">
+    <div class="notification d-flex justify-content-center align-items-center">
+      <i class="bell-icon"></i>
+      <span class="badge-notification"></span>
+    </div>
+    <div class="profile">
+      <img src="../../../../assets/images/image.png" alt="Profile Image" class="profile-image">
+      <div class="profile-info">
+        <div class="profile-name">Aliah Lane</div>
+        <div class="profile-email">aliah@9ostech.com</div>
+      </div>
+    </div>
+    <div class="p-drop">
+      <app-svg [svgPath]="'../../../../assets/images/arrow-down.svg'"></app-svg>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,99 @@
+@import '../../../../assets/css/helpers/variables';
+.custom-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-paginator button {
+  margin: 0 4px;
+}
+
+.showing-records {
+  margin: 0 8px;
+}
+
+
+.custom-pagination{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  &__numbers{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    .dots{
+      background: white;
+      color: $neutral-grey-600;
+    }
+  }
+
+  &__btn-number{
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: $neutral-grey-600;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    border: none;
+    background: white;
+
+    &:disabled{
+      background: $neutral-grey-600;
+      color: white;
+    }
+
+    &--dots{
+      &:disabled{
+        background: white;
+        color: $neutral-grey-600;
+      }
+    }
+
+  }
+
+  &__previous, &__next{
+    color: $neutral-grey-600;
+    font-family: $font-dm-sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid $table-border;
+    padding: 10px 12px;
+    border-radius: 45px;
+
+    &:disabled{
+      cursor: not-allowed;
+      color: $neutral-grey-300;
+    }
+  }
+
+  &__show-action{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    p{
+      color: $neutral-grey-500;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    b{
+      font-weight: 700;
+    }
+  }
+
+  
+}

@@ -1,0 +1,26 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+  <div class="wrapper fixed" >
+    <div class="header">
+      <h1 class="title d-flex justify-content-center align-items-center">
+        <span class="logo d-flex justify-content-center align-items-center">T</span> <span class="logo-text">Oak Street Technical Test</span>
+      </h1>
+      <div class="toggle d-flex justify-content-center align-items-center" (click)="handleSidebarToggle()">
+        <app-svg [svgPath]="'../../../../assets/images/arrow.svg'"></app-svg>
+      </div>
+    </div>
+    <div class="nav">
+      <ng-container *ngFor="let item of menuItems">
+        <div class="link">
+          <div class="content" [routerLink]="item.navigate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">
+            <div class="icon">
+              <app-svg class="inactive" [svgPath]="'../../../../assets/images/'+item.icon"></app-svg>
+              <app-svg class="active" [svgPath]="'../../../../assets/images/'+item.active"></app-svg>
+            </div>
+            <div class="title">{{item.label}}</div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="footer"></div>
+  </div>
+  </div>

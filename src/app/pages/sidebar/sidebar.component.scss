@@ -1,0 +1,192 @@
+@import '../../../assets/css/helpers/variables';
+
+.sidebar {
+  height: 100vh;
+  transition: 0.3s;
+  width: 110px;
+  background-color: $white;
+
+  .wrapper {
+    &.fixed {
+      position: fixed;
+      overflow: visible;
+      box-shadow: 0px 0px 22px 0px rgba(0, 124, 148, 0.20);
+      height: 100vh;
+    }
+  }
+
+  &.expanded {
+    width: 293px;
+    .nav {
+      .link {
+        .content {
+          .title {
+            max-width: 234px;
+            max-height: 21px;
+          }
+
+          .icon {
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+
+    .header {
+      .title {
+        .logo-text {
+          max-width: 195px;
+          transition: 0.3s;
+          max-height: 48px;
+        }
+      }
+
+      .toggle {
+        app-svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .header {
+    margin-top: 40px;
+    padding: 20px;
+    position: relative;
+
+    .title {
+      font-family: $font-poppins;
+      font-size: 20px;
+      font-weight: 800;
+      gap: 10px;
+
+      .logo-text {
+        max-width: 0;
+        overflow: hidden;
+        transition: 0.3s;
+        max-height: 48px;
+      }
+
+      .logo {
+        background-color: $primary-green;
+        border-radius: 8.47px;
+        font-size: 28px;
+        color: $white;
+        height: 48px;
+        width: 48px;
+      }
+    }
+
+    .toggle {
+      background-color: #26B34B;
+      position: absolute;
+      z-index: 999;
+      right: -20px;
+      top: 40px;
+      width: 20px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      height: 60px;
+      cursor: pointer;
+      visibility: hidden;
+    }
+  }
+
+  .nav {
+    flex-direction: column;
+    padding: 20px;
+
+    .link {
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        padding: 8px 0;
+
+        transition: 0.3s;
+
+        &.active {
+          .title {
+            color: $neutral-grey-800;
+          }
+
+          .icon {
+            color: $primary-green;
+
+            .active {
+              display: block;
+            }
+          }
+
+          .inactive {
+            display: none;
+          }
+        }
+
+        &:hover {
+          .title {
+            color: $neutral-grey-600;
+          }
+
+          .icon {
+            color: $primary-green;
+          }
+        }
+
+        .icon {
+          flex: 0 0 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 0px;
+          color: $neutral-grey-400;
+
+          .active {
+            display: none;
+          }
+        }
+
+        .title {
+          flex: 1;
+          font-family: $font-dm-sans;
+          color: $neutral-grey-400;
+          font-weight: 500;
+          transition: 0.3s;
+          font-size: 14px;
+          overflow: hidden;
+          max-width: 0;
+          max-height: 21px;
+        }
+      }
+    }
+  }
+
+  .footer::before {
+    content: '';
+    height: 400px;
+    background: linear-gradient(to bottom, white, #D6F1E6), linear-gradient(to right, #76d7b0, #ede77e);
+    background: -webkit-linear-gradient(to bottom, white, #D6F1E6), -webkit-linear-gradient(to right, #76d7b0, #ede77e);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to bottom, white, #D6F1E6), -o-linear-gradient(to right, #76d7b0, #ede77e);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to bottom, white, #D6F1E6), -moz-linear-gradient(to right, #76d7b0, #ede77e);
+    /* For Firefox 3.6 to 15 */
+    background: -ms-linear-gradient(to bottom, white, #D6F1E6), -ms-linear-gradient(to right, #76d7b0, #ede77e);
+    /* For Internet Explorer 10 */
+    background: linear-gradient(to bottom, white, #D6F1E6), linear-gradient(to right, #76d7b0, #ede77e);
+    background-blend-mode: overlay;
+    position: absolute;
+    border: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: -9;
+  }
+}
+
+.sidebar:hover .header .toggle {
+  visibility: visible;
+  transition: 0.3s;
+}

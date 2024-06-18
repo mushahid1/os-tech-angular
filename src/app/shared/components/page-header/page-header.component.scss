@@ -1,0 +1,14 @@
+@import '../../../../assets/css/helpers/variables';
+
+.page-title {
+    h1 {
+        font-size: 25px;
+        font-weight: 700;
+        margin: 0;
+    }   
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        color: $neutral-grey-700;
+    }
+}

@@ -1,0 +1,94 @@
+@import '../../../assets/css/helpers/variables';
+
+.filters {
+  margin-top: 20px;
+
+  .total {
+    span {
+      font-size: 16px;
+      font-weight: 500;
+      color: #343334;
+    }
+  }
+
+  .search-company {
+    width: 300px;
+  }
+}
+
+.nav {
+  border-bottom: 1px solid $table-border;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  .nav-item {
+    cursor: pointer;
+    .nav-link {
+      color: $permissions-pages;
+      position: relative;
+      &.active {
+        color: $tab-green;
+        &::after {
+          content: '';
+          width: 100%;
+          height: 8px;
+          background-color: $tab-green;
+          position: absolute;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          top: 35px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
+.role-config {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $table-border;
+  .col:first-child {
+    min-width: 300px;
+  }
+  .col {
+    border-right: 1px solid $table-border;
+    position: relative;
+    padding: 5px 10px;
+    line-height: 1;
+    .form-control-search {    
+      position: absolute;
+      z-index: 2;
+      display: block;
+      margin-top: 15px;
+      margin-right: 15px;
+      text-align: center;
+      pointer-events: none;
+      top: 0;
+      right: 0;
+    }
+  
+    .search-field {
+      border: 0;
+      width: 100%;
+      max-height: 44px;
+      padding: 10px;
+      padding-right: 45px;
+    }
+
+    .role {
+      font-size: 11px;
+      font-weight: 400;
+      color: $neutral-grey-110;
+    }
+    .role-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: $neutral-grey-120;
+    }
+  }
+  .col:last-child {
+    border-right: 0;
+  }
+}

@@ -1,0 +1,122 @@
+@import '../../../../assets/css/helpers/variables';
+
+.accordion {
+  .accordion-header {
+    background-color: $secondary-green;
+    display: flex;
+    justify-content: space-between;
+
+    .col:first-child {
+      min-width: 300px;
+    }
+
+    .col {
+      border-right: 1px solid $roles-green;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: $neutral-grey-120;
+      padding: 0 10px;
+
+      &.collapsed {
+        .rotate {
+          transform: rotate(180deg);
+        }
+      }
+      ::ng-deep {
+        .mdc-checkbox__background {
+          border-radius: 6px;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+          border: 1px solid $roles-green;
+          background: $white;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+          border: 1px solid $primary-green;
+          background-color: #E9F7ED;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+          border-color: $primary-green;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+          color: $primary-green;
+        }
+
+        .mdc-checkbox__mixedmark {
+          width: 70%;
+        }
+      }
+    }
+
+    .col:last-child {
+      border-right: 0;
+    }
+  }
+
+  .accordion-content {
+    display: flex;
+    flex-direction: column;
+    
+    .content-row {
+      border-bottom: 1px solid $table-border;
+    }
+    
+    &.collapsed {
+      display: none;
+    }
+
+    .col:first-child {
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .col {
+      border-right: 1px solid $table-border;
+      font-size: 14px;
+      font-weight: 500;
+      color: $neutral-grey-120;
+      text-align: center;
+      padding: 0 10px;
+
+      ::ng-deep {
+        .mdc-checkbox__background {
+          border-radius: 6px;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+          border: 1px solid $roles-green;
+          background: $white;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+          border: 1px solid $primary-green;
+          background-color: #E9F7ED;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+          border-color: $primary-green;
+        }
+
+        .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+          color: $primary-green;
+        }
+
+        .mdc-checkbox__mixedmark {
+          width: 70%;
+        }
+      }
+    }
+
+    .col:last-child {
+      border-right: 0;
+    }
+  }
+}

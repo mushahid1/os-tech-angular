@@ -1,0 +1,29 @@
+@import '../../../../assets/css/helpers/variables';
+
+.chip{
+  border-radius: 35px;
+  padding: 5px 8px;
+  color: $white;
+  font-family: $font-dm-sans;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1; /* 133.333% */
+  max-width: 132px;
+  width: fit-content;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &--companies{
+    background: $chip-green-bg;
+    color: $chip-green;
+  }
+  &--waffle{
+    background: $chip-red-bg;
+    color: $chip-red;
+  }
+  &--enwage{
+    background: $chip-blue-bg;
+    color: $chip-blue;
+  }
+}

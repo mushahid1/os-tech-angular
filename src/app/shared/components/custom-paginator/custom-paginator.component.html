@@ -1,0 +1,31 @@
+<div class="custom-pagination">
+  <div class="custom-pagination__show-action">
+    <p *ngIf="length === 0">Page <b>1 of 10</b></p>
+    <p *ngIf="length > 0">Page <b>{{pageInfo.pageSize}}</b></p>
+
+    <div class="dropdown">
+      <button class="button button-outline" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+        <span>15</span>
+        <app-svg [svgPath]="'../../../../assets/images/arrow-down.svg'"></app-svg>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><button class="dropdown-item" type="button">20</button></li>
+        <li><button class="dropdown-item" type="button">50</button></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="custom-pagination__numbers">
+      <button type="button" [disabled]="this.pageInfo.pageIndex <= 0" class="ac p-ac custom-pagination__previous " (click)="onPrevious()" data-test-id="pagination-previous-btn"><app-svg [svgPath]="'../../../../assets/images/arrow-left.svg'"></app-svg></button>
+      <div>
+        <ng-container *ngFor="let page of pages; let i = index">
+          <button class="custom-pagination__btn-number" *ngIf="i < pageInfo.maxPagesToShow" [disabled]="page.disabled" (click)="goToPage(page.index)" data-test-id="pagination-page-btn">{{ page.label }}</button>
+        </ng-container>
+        <ng-container *ngIf="pages.length > pageInfo.maxPagesToShow">
+          <button [disabled]="true" class="dots" data-test-id="pagination-dots" class="custom-pagination__btn-number custom-pagination__btn-number--dots">...</button>
+          <button [disabled]="totalPages === pageInfo.pageIndex + 1" (click)="goToPage(totalPages - 1)" data-test-id="pagination-lastpage-btn" class="custom-pagination__btn-number">{{totalPages}}</button>
+        </ng-container>
+      </div>
+      <button type="button" [disabled]="this.totalPages === 0 || this.pageInfo.pageIndex + 1 === this.totalPages" class="ac n-ac custom-pagination__next" (click)="onNext()" data-test-id="pagination-next-btn"><app-svg [svgPath]="'../../../../assets/images/arrow-right.svg'"></app-svg></button>
+  </div>
+</div>

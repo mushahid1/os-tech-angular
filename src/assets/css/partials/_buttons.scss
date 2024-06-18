@@ -1,0 +1,39 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  color: $neutral-grey-600;
+  border-radius: 35px;
+  background-color: $white;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.button-outline {
+  @extend .button;
+  background-color: $white;
+  border: 1px solid $neutral-grey-300;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $neutral-gray-200;
+  }
+}
+
+.button-filled {
+  @extend .button;
+  background-color: $btn-color;
+  color: $white;
+  border: 1px solid $btn-color;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $neutral-gray-200;
+  }
+}
